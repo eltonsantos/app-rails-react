@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EspressoRails</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>MENU</h1>
+
+    <ul>
+      <% if user_signed_in? %>
+        <% if current_user.role == 'admin' %>
+          <li><%= link_to "Despesas", root_path %></li>
+          <li><%= link_to "Funcionarios", users_path %></li>
+          <li><%= link_to "Cartões", cards_path %></li>
+          <li><%= link_to "Categorias", categories_path %></li>
+          <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <%= yield %>
+  </body>
+</html>
