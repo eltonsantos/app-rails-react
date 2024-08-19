@@ -7,11 +7,14 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag    'application' %>
   </head>
 
   <body>
     <h1>MENU</h1>
 
+    <%= react_component("TestComponent") %>
+    
     <ul>
       <% if user_signed_in? %>
         <% if current_user.role == 'admin' %>
@@ -25,6 +28,8 @@
         <% end %>
       <% end %>
     </ul>
+
+    <%= react_component("Hello", { candidate: "<candidato>" }) %>
 
     <%= yield %>
   </body>

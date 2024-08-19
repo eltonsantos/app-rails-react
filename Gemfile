@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'paperclip', '~> 6.1'
+gem 'react-rails'
+gem 'shakapacker', '= 8.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -42,6 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.2'
 end
 
 group :development do
